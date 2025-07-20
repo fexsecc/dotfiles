@@ -1,4 +1,4 @@
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source for autosuggestions
 autoload -Uz compinit promptinit
 compinit
@@ -48,16 +48,12 @@ alias firefox="/opt/firefox-container/run.sh&"
 alias neofetch="screenfetch"
 alias open="xdg-open"
 alias xclip="xclip -r -selection clipboard"
-alias cat="bat --paging=never"
+alias cat="batcat --paging=never"
 
 export GPG_TTY=$(tty)
-export PATH="/home/neo/.scripts/:$PATH"
 
-alias hows-my-gpu='lspci -nnk | grep -C 3 -i nvidia'
-alias nvidia-enable='sudo virsh nodedev-reattach pci_0000_01_00_0 && echo "GPU reattached (now host ready)" && sudo rmmod vfio_pci vfio_pci_core vfio_iommu_type1 && echo "VFIO drivers removed" && sudo modprobe -i nvidia nvidia_uvm nvidia_wmi_ec_backlight && echo "NVIDIA drivers added" && echo "COMPLETED!"'
-alias nvidia-disable='sudo modprobe -r nvidia_wmi_ec_backlight nvidia && echo "NVIDIA drivers removed" && sudo modprobe -i vfio_pci vfio_pci_core vfio_iommu_type1 && echo "VFIO drivers added" && sudo virsh nodedev-detach pci_0000_01_00_0 && echo "GPU detached (now vfio ready)" && echo "COMPLETED!"'
-alias looking-glass='looking-glass-client -s -m 97 &'
-alias volup='pactl set-source-volume 1 +1%'
-alias voldown='pactl set-source-volume 1 -1%'
-alias disable-sleep='xset s off; xset -dpms'
-alias enable-sleep='xset s on; xset +dpms'
+alias python=python3
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
