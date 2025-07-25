@@ -36,11 +36,6 @@ config.default_prog = { 'pwsh.exe', '-nologo' }
 config.disable_default_key_bindings = true
 config.leader = { key=" ", mods="CTRL" }
 config.keys = {
-    { 
-        key = 'a',
-        mods = 'CTRL',
-        action = wezterm.action.CopyMode 'MoveToStartOfLine'
-    },
     {
         mods = "SHIFT|CTRL",
         key = "c",
@@ -72,14 +67,14 @@ config.keys = {
         action = wezterm.action.ActivateTabRelative(1)
     },
     {
-        mods = "LEADER",
-        key = "\"",
-        action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }
+        mods="LEADER|SHIFT",
+        key="\"",
+        action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}
     },
     {
-        mods = "LEADER",
+        mods = "LEADER|SHIFT",
         key = "%",
-        action = wezterm.action.SplitVertical { domain = "CurrentPaneDomain" }
+        action = wezterm.action.SplitHorizontal { domain = "CurrentPaneDomain" }
     },
     {
         mods = "CTRL",
@@ -100,6 +95,28 @@ config.keys = {
         mods = "CTRL",
         key = "l",
         action = wezterm.action.ActivatePaneDirection "Right"
+    },
+    {
+        mods = "CTRL|SHIFT",
+        key = "F",
+        action = wezterm.action.Search {CaseInSensitiveString = ""}
+    },
+    -- We can make separate bindings, but wezterm has keytables,
+    -- which are like custom modes
+    {
+        key = "r",
+        mods = "LEADER",
+        action = wezterm.action.ActivateKeyTable { name = "resize_pane", one_shot = false }
+    },
+}
+
+config.key_tables = {
+    resize_pane = {
+        { key = "h", action = wezterm.action.AdjustPaneSize { "Left", 1 } },
+        { key = "j", action = wezterm.action.AdjustPaneSize { "Down", 1 } },
+        { key = "k", action = wezterm.action.AdjustPaneSize { "Up", 1 } },
+        { key = "l", action = wezterm.action.AdjustPaneSize { "Right", 1 } },
+        { key = "Escape", action = "PopKeyTable" },
     }
 }
 
