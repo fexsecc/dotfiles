@@ -1,0 +1,73 @@
+[window]
+
+padding.x = 0
+padding.y = 0
+
+opacity = 0.9
+
+decorations = "Full"
+decorations_theme_variant = "Dark"
+
+[mouse]
+
+hide_when_typing = true
+
+[font]
+
+normal.family = "JetBrainsMono NF"
+bold.family = "JetBrainsMono NF"
+italic.family = "JetBrainsMono NF"
+bold_italic.family = "JetBrainsMono NF"
+
+size = 10.0
+
+# THEME
+[colors.bright]
+black = "#444b6a"
+blue = "#7da6ff"
+cyan = "#0db9d7"
+green = "#b9f27c"
+magenta = "#bb9af7"
+red = "#ff7a93"
+white = "#ffffff"
+yellow = "#f1fa8c"
+
+[colors.normal]
+black = "#32344a"
+blue = "#7aa2f7"
+cyan = "#449dab"
+green = "#9ece6a"
+magenta = "#ad8ee6"
+red = "#f7768e"
+#white = "#787c99"
+white = "#ffffff"
+yellow = "#f1fa8c"
+
+[colors.primary]
+background = "#1a1b26"
+foreground = "#ffffff"
+
+[colors.search.matches]
+
+foreground = "#44475a"
+background = "#50fa7b"
+
+[colors.search.focused_match]
+
+foreground = "#44475a"
+background = "#ffb86c"
+
+[colors.footer_bar]
+
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.hints.start]
+
+foreground = "#282a36"
+background = "#f1fa8c"
+
+[colors.hints.end]
+
+foreground = "#f1fa8c"
+background = "#282a36"
