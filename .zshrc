@@ -1,4 +1,4 @@
- source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source for autosuggestions
 autoload -Uz compinit promptinit
 compinit
@@ -31,7 +31,7 @@ setopt appendhistory
 #source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # configure prompt
-PS1='%F{blue}%n@%m[%~]$ '
+PS1='%F{green}%n@%m[%~]$ '
 
 #highlight matches in red with grep
 alias grep="grep --color=always"
@@ -44,11 +44,14 @@ alias ll="ls -l --color=auto"
 alias la="ls -la --color=auto"
 alias cls="clear"
 alias vim="nvim"
-alias firefox="/opt/firefox-container/run.sh&"
 alias neofetch="screenfetch"
 alias open="xdg-open"
-alias xclip="xclip -r -selection clipboard"
-alias cat="batcat --paging=never"
+#alias xclip="xclip -r -selection clipboard"
+alias cat="bat --paging=never"
+alias pwnssh="ssh hacker@dojo.pwn.college"
+alias exprn="cp ~/code/python/template.py ./exploit.py"
+alias venvrn="python -m venv venv; source ./venv/bin/activate"
+alias lock="hyprlock"
 
 export GPG_TTY=$(tty)
 
@@ -57,3 +60,6 @@ alias python=python3
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export PATH="$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin"
+
+. "$HOME/.local/share/../bin/env"
