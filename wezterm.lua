@@ -16,7 +16,7 @@ config.colors = {
 }
 
 -- Appearance
-config.window_decorations = "NONE"
+config.window_decorations = "RESIZE"
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = false
