@@ -7,15 +7,37 @@ local config = wezterm.config_builder()
 -- Font settings
 config.font_size = 16
 config.font = wezterm.font('JetBrains Mono', { italic = true })
-config.color_scheme = 'Tokyo Night'
+--config.color_scheme = 'Tokyo Night'
+config.color_scheme = 'GitHub Dark'
 
 -- Colors
 config.colors = {
     cursor_bg = "white",
-    cursor_border = "white"
+    cursor_border = "white",
+    foreground = "silver",
+    background = '#0a0c10',
+    tab_bar = {
+        -- The color of the inactive tab bar edge/divider
+        background = '#0a0c10',
+        active_tab = {
+            bg_color = '#2b2042',
+            fg_color = 'silver',
+        },
+        inactive_tab = {
+            bg_color = '#0a0c10',
+            fg_color = 'silver',
+        },
+        new_tab = {
+            bg_color = '#0a0c10',
+            fg_color = 'silver',
+        },
+    },
 }
 
 -- Appearance
+config.line_height = 0.9
+--config.cell_width = 1.0
+config.enable_scroll_bar = false
 config.window_decorations = "RESIZE"
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
@@ -25,7 +47,7 @@ config.window_padding = {
     left = 0,
     right = 0,
     top = 0,
-    bottom = 0
+    bottom = 0,
 }
 
 -- Misc
