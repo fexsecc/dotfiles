@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- Font settings
 config.font_size = 16
-config.font = wezterm.font('JetBrains Mono', { italic = true })
+config.font = wezterm.font('JetBrainsMono Nerd Font Propo', { italic = false })
 --config.color_scheme = 'Tokyo Night'
 config.color_scheme = 'GitHub Dark'
 
