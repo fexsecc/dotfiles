@@ -2,6 +2,7 @@ New-Alias vim nvim
 Import-Module PSReadline
 $Env:KOMOREBI_CONFIG_HOME = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\komorebi'
 $Env:NODE_REPL_HISTORY = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\node\node_repl_history'
+$Env:HCLI_CURRENT_IDA_INSTALL_DIR = "C:\Program Files\IDA Professional 9.3"
 
 function prompt {
     $p = $executionContext.SessionState.Path.CurrentLocation
@@ -44,4 +45,17 @@ function clang64 {
     & "C:\msys64\usr\bin\bash.exe" --login -i
 }
 
-
+Remove-Item alias:ls -ErrorAction SilentlyContinue
+. "C:\clones\eza\completions\pwsh\_eza.ps1"
+function ls {
+    eza --icons --group-directories-first @args
+}
+$ezaCompPath = "C:\clones\eza\completions\pwsh\_eza.ps1"
+if (Test-Path $ezaCompPath) {
+    # Read the raw script text
+    $rawScript = Get-Content $ezaCompPath -Raw
+    # Use regex to find "-CommandName 'eza'" (ignoring quotes/case) and replace it with 'ls'
+    $lsScript = $rawScript -replace "(?i)-CommandName\s+['""]?eza['""]?", "-CommandName 'ls'"
+    # Run the modified script in memory to register the completion for 'ls'
+    Invoke-Expression $lsScript
+}
