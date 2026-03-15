@@ -59,3 +59,8 @@ if (Test-Path $ezaCompPath) {
     # Run the modified script in memory to register the completion for 'ls'
     Invoke-Expression $lsScript
 }
+
+Remove-Item alias:cat -ErrorAction SilentlyContinue
+function cat {
+    bat @args
+}
