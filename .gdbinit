@@ -1,6 +1,7 @@
 add-auto-load-safe-path /root/.gdbinit
 source ~/.gdbinit_pwndbg
 set debuginfod enabled on
+set print asm-demangle on
 source /opt/splitmind/gdbinit.py
 python
 import splitmind
