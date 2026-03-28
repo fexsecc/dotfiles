@@ -1,2 +1,2 @@
-# dotfiles
-my pc masterrace elitist arch dotfiles
+# The dotfiles
+* Setup scripts *soon*
