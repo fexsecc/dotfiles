@@ -1,31 +1,24 @@
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 5, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    //"spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "height": 5,
     "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/scratchpad", "custom/media"],
     "modules-center": ["hyprland/window"],
-    //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "battery", "battery#bat2", "clock", "tray"],
     "modules-right": ["mpd", "tray", "bluetooth", "cpu", "temperature", "memory", "pulseaudio", "backlight", "idle_inhibitor", "keyboard-state", "battery", "battery#bat2", "clock"],
-    // Modules configuration
-    // "hyprland/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "warp-on-scroll": false,
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "9": "",
+            "urgent": "",
+            "focused": "",
+            //"default": ""
+            "default": ""
+        }
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -46,7 +39,6 @@
         "tooltip-format": "{app}: {title}"
     },
     "mpd": {
-//        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
         "format": "  {title} - {artist} {stateIcon} [{elapsedTime:%M:%S}/{totalTime:%M:%S}] {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}[{songPosition}/{queueLength}] [{volume}%]",
         "format-disconnected": " Disconnected",
         "format-stopped": " {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
@@ -56,7 +48,6 @@
             "on": " "
         },
         "random-icons": {
-//            "off": "<span color=\"#f53c3c\"></span> ",
             "on": " "
         },
         "repeat-icons": {
@@ -75,7 +66,6 @@
         "on-click-right": "foot -a ncmpcpp ncmpcpp",
         "on-scroll-up": "mpc volume +2",
         "on-scroll-down": "mpc volume -2"
-
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -85,64 +75,52 @@
         }
     },
     "tray": {
-        // "icon-size": 21,
         "spacing": 10
     },
     "clock": {
-        "format": "{:%H:%M}",
+        "interval": 1,
+        "format": "{:%H:%M:%S %A %d %B %Y}",
         "format-alt": "{:%A, %B %d, %Y (%R)}  ",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 3,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-                    },
-        "actions":  {
-                    "on-click-right": "mode",
-                    "on-scroll-up": "tz_up",
-                    "on-scroll-down": "tz_down",
-                    "on-scroll-up": "shift_up",
-                    "on-scroll-down": "shift_down"
-                    }
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
     },
-    //"clock": {
-    //    // "timezone": "America/New_York",
-    //    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    //    //"format-alt": "{:%Y-%m-%d}"
-    //    "format": "{:L%Y-%m-%d<small>[%a]</small> <tt><small>%p</small></tt>%I:%M}"
-    //    //"format": "{:%Y-%m-%d %H:%M}"
-    //},
     "cpu": {
-        "format": " {usage}%",
-//        "tooltip": false
+        "format": " {usage}%"
     },
     "memory": {
         "format": " {}%"
     },
     "temperature": {
         "thermal-zone": 2,
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 80,
         "format-critical": "{icon} {temperatureC}°C",
         "format": "{icon} {temperatureC}°C",
         "format-icons": ["", "", ""]
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{icon} {percent}%",
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
@@ -150,15 +128,12 @@
         "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
         "format-icons": ["", "", "", "", ""]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
         "format-ethernet": " {ifname}",
         "tooltip-format": " {ifname} via {gwaddr}",
@@ -167,7 +142,7 @@
         "format-alt": " {ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
+        "scroll-step": 5,
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": " {icon} {volume}% {format_source}",
         "format-bluetooth-muted": "  {icon} {format_source}",
@@ -175,12 +150,6 @@
         "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
-//            "headphone": "",
-//            "hands-free": "",
-//            "headset": "",
-//            "phone": "",
-//            "portable": "",
-//            "car": "",
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
@@ -195,28 +164,19 @@
             "default": "🎜"
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
     },
     "bluetooth": {
-    "format": "󰂲",
-    "format-on": "{icon}",
-    "format-off": "{icon}", 
-    "format-connected":"{icon}",
-    "format-icons":{
-        "on":"󰂯",
-        "off": "󰂲",
-        "connected": "󰂱",
+        "format": "󰂲",
+        "format-on": "{icon}",
+        "format-off": "{icon}", 
+        "format-connected": "{icon}",
+        "format-icons": {
+            "on": "󰂯",
+            "off": "󰂲",
+            "connected": "󰂱"
         },
-    "on-click": "blueman-manager",
-    "tooltip-format-connected":"{device_enumerate}"
-    },
-     "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-    // "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C ",
-    "format": "{temperatureC}°C "
-    },
+        "on-click": "blueman-manager",
+        "tooltip-format-connected": "{device_enumerate}"
+    }
 }
-
