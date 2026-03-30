@@ -1,6 +1,11 @@
 New-Alias vim nvim
 Import-Module PSReadline
-$Env:KOMOREBI_CONFIG_HOME = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\komorebi'
+
+Set-PSReadLineKeyHandler -Key "Ctrl+a" -Function BeginningOfLine
+Set-PSReadLineKeyHandler -Key "Ctrl+e" -Function EndOfLine
+Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function DeleteCharOrExit
+
+#$Env:KOMOREBI_CONFIG_HOME = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\komorebi'
 $Env:NODE_REPL_HISTORY = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\node\node_repl_history'
 $Env:HCLI_CURRENT_IDA_INSTALL_DIR = "C:\Program Files\IDA Professional 9.3"
 
