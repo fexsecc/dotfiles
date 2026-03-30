@@ -78,6 +78,7 @@ keybinds clear-defaults=true {
         bind "d" { HalfPageScrollDown; }
         bind "u" { HalfPageScrollUp; }
         bind "y" { Copy; SwitchToMode "Normal"; }
+        bind "q" { SwitchToMode "Normal"; }
     }
     search {
         bind "Ctrl s" { SwitchToMode "Normal"; }
@@ -94,6 +95,7 @@ keybinds clear-defaults=true {
         bind "w" { SearchToggleOption "Wrap"; }
         bind "o" { SearchToggleOption "WholeWord"; }
         bind "y" { Copy; SwitchToMode "Normal"; }
+        bind "q" { SwitchToMode "Normal"; }
     }
     entersearch {
         bind "Ctrl c" "Esc" { SwitchToMode "Scroll"; }
@@ -259,7 +261,9 @@ pane_frames false
 default_layout "compact"
 mouse_mode true
 copy_clipboard "system"
+copy_on_select true
 show_startup_tips false
+scrollback_editor "nvim"
 
 themes {
     TmuxTheme {
