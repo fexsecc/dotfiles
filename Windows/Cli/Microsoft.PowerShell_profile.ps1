@@ -64,3 +64,6 @@ Remove-Item alias:cat -ErrorAction SilentlyContinue
 function cat {
     bat @args
 }
+
+# zellij completions generated through zellij setup --generate-completion powershell
+. "$PSScriptRoot\zellij_comp.ps1"
