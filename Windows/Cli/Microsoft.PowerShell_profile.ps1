@@ -9,15 +9,25 @@ Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function DeleteCharOrExit
 $Env:NODE_REPL_HISTORY = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\node\node_repl_history'
 $Env:HCLI_CURRENT_IDA_INSTALL_DIR = "C:\Program Files\IDA Professional 9.3"
 
+#function prompt {
+#    $p = $executionContext.SessionState.Path.CurrentLocation
+#    if ($p.Provider.Name -eq "FileSystem") {
+#        $e = [char]27
+#        $path = $p.ProviderPath -Replace "\\", "/"
+#        "$e]7;file://${env:COMPUTERNAME}/${path}$e\" + "PS $p> "
+#    } else {
+#        "PS $p> "
+#    }
+#}
+
 function prompt {
-    $p = $executionContext.SessionState.Path.CurrentLocation
-    if ($p.Provider.Name -eq "FileSystem") {
-        $e = [char]27
-        $path = $p.ProviderPath -Replace "\\", "/"
-        "$e]7;file://${env:COMPUTERNAME}/${path}$e\" + "PS $p> "
-    } else {
-        "PS $p> "
+    $CurrentPath = $executionContext.SessionState.Path.CurrentLocation
+    
+    if ($CurrentPath.Provider.Name -eq "FileSystem") {
+        [System.Environment]::CurrentDirectory = $CurrentPath.ProviderPath
     }
+    
+    "PS $CurrentPath> "
 }
 
 function vc {
@@ -72,3 +82,4 @@ function cat {
 
 # zellij completions generated through zellij setup --generate-completion powershell
 . "$PSScriptRoot\zellij_comp.ps1"
+
