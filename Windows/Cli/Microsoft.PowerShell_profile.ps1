@@ -5,6 +5,7 @@ Set-PSReadLineKeyHandler -Key "Ctrl+a" -Function BeginningOfLine
 Set-PSReadLineKeyHandler -Key "Ctrl+e" -Function EndOfLine
 Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function DeleteCharOrExit
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+Set-PSReadlineOption -BellStyle None
 
 #$Env:KOMOREBI_CONFIG_HOME = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\komorebi'
 $Env:NODE_REPL_HISTORY = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\node\node_repl_history'
