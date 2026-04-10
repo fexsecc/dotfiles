@@ -4,6 +4,7 @@ Import-Module PSReadline
 Set-PSReadLineKeyHandler -Key "Ctrl+a" -Function BeginningOfLine
 Set-PSReadLineKeyHandler -Key "Ctrl+e" -Function EndOfLine
 Set-PSReadLineKeyHandler -Key "Ctrl+d" -Function DeleteCharOrExit
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 #$Env:KOMOREBI_CONFIG_HOME = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\komorebi'
 $Env:NODE_REPL_HISTORY = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\node\node_repl_history'
@@ -65,7 +66,8 @@ Remove-Item alias:ls -ErrorAction SilentlyContinue
 function ls {
     eza --icons --group-directories-first @args
 }
-$ezaCompPath = "C:\clones\eza\completions\pwsh\_eza.ps1"
+$CompRoot = "C:\clones"
+$ezaCompPath = $CompRoot + "\eza\completions\pwsh\_eza.ps1"
 if (Test-Path $ezaCompPath) {
     # Read the raw script text
     $rawScript = Get-Content $ezaCompPath -Raw
