@@ -4,6 +4,7 @@ $TargetLevel = [System.EnvironmentVariableTarget]::User
 [Environment]::SetEnvironmentVariable("CARGO_HOME", "$env:USERPROFILE\.config\cargo", $TargetLevel)
 [Environment]::SetEnvironmentVariable("RUSTUP_HOME", "$env:USERPROFILE\.config\rustup", $TargetLevel)
 [Environment]::SetEnvironmentVariable("GOPATH", "$env:USERPROFILE\.config\go", $TargetLevel)
+[Environment]::SetEnvironmentVariable("POWERSHELL_TELEMETRY_OPTOUT", 1, $TargetLevel)
 
 $ZellijDir = "$env:USERPROFILE/.config/zellij"
 $AlacrittyDir = "$env:APPDATA/alacritty"
