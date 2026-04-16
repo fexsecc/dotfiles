@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 CopyConfig() {
     local TargetFile=$1
     local WslPath="./Wsl/${TargetFile}"
@@ -19,5 +21,15 @@ CopyConfig() {
     /bin/sed -i 's/\r$//' "${DestinationDir}/${OutputFileName}"
 }
 
+# Configure zsh
 CopyConfig "zshrc" "$HOME" ".zshrc"
+/bin/mkdir -p "$HOME/.config/zsh/"
+/bin/touch "$HOME/.config/zsh/zsh_history"
+# Configure tmux and tpm plugins
 CopyConfig "tmux.conf" "$HOME/.config/tmux"
+TpmDir="$HOME/.config/tmux/plugins/tpm"
+if [ ! -d "$TpmDir" ]; then
+    /bin/git clone https://github.com/tmux-plugins/tpm "$TpmDir"
+fi
+"$TpmDir/bin/install_plugins"
+"$TpmDir/bin/update_plugins" all
