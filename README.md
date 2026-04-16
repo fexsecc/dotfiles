@@ -1,2 +1,2 @@
 # The dotfiles
-* Setup scripts *soon*
+* Contains setup scripts
