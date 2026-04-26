@@ -67,4 +67,4 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export PATH="$PATH:$HOME/.local/share/gem/ruby/3.4.0/bin"
-alias polinet='sudo ip addr add 10.41.178.67/16 dev eth0; sudo ip route add default via 10.41.0.1; echo "nameserver 9.9.9.9" | sudo tee /etc/resolv.conf > /dev/null'
+alias polinet='sudo ip addr add 10.41.19.183/16 dev eth0; sudo ip route add default via 10.41.0.1; echo "nameserver 9.9.9.9" | sudo tee /etc/resolv.conf > /dev/null'
