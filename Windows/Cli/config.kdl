@@ -151,8 +151,13 @@ keybinds clear-defaults=true {
         bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "c" { NewTab; SwitchToMode "Normal"; }
         bind "," { SwitchToMode "RenameTab"; }
+
+        // Map a/s p/n for next/prev navigation
+        bind "p" { GoToPreviousTab; SwitchToMode "Normal"; }
         bind "a" { GoToPreviousTab; SwitchToMode "Normal"; }
+        bind "n" { GoToNextTab; SwitchToMode "Normal"; }
         bind "s" { GoToNextTab; SwitchToMode "Normal"; }
+
         bind "h" "Left" { MoveFocus "Left"; SwitchToMode "Normal"; }
         bind "l" "Right" { MoveFocus "Right"; SwitchToMode "Normal"; }
         bind "j" "Down" { MoveFocus "Down"; SwitchToMode "Normal"; }
