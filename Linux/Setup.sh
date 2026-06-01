@@ -19,7 +19,7 @@ CopyConfig "./Cli/zshrc" "$HOME" ".zshrc"
 /bin/mkdir -p "$HOME/.config/zsh/"
 /bin/touch "$HOME/.config/zsh/zsh_history"
 # Configure tmux and tpm plugins
-CopyConfig "./Cli/tmux.conf" "$HOME/.config/tmux"
+CopyConfig "./Cli/tmux.conf" "$HOME/.config/tmux" "tmux.conf"
 TpmDir="$HOME/.config/tmux/plugins/tpm"
 if [ ! -d "$TpmDir" ]; then
     /bin/git clone https://github.com/tmux-plugins/tpm "$TpmDir"
