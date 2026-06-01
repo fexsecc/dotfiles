@@ -18,6 +18,11 @@ CopyConfig() {
 CopyConfig "./Cli/zshrc" "$HOME" ".zshrc"
 /bin/mkdir -p "$HOME/.config/zsh/"
 /bin/touch "$HOME/.config/zsh/zsh_history"
+
+# Configure alacritty
+/bin/mkdir -p "$HOME/.config/alacritty/"
+CopyConfig "./Cli/alacritty.toml" "$HOME/.config/alacritty" "alacritty.toml"
+
 # Configure tmux and tpm plugins
 CopyConfig "./Cli/tmux.conf" "$HOME/.config/tmux" "tmux.conf"
 TpmDir="$HOME/.config/tmux/plugins/tpm"
