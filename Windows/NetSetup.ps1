@@ -36,4 +36,4 @@ New-NetFirewallRule -DisplayName "Allow Syncthing TCP" -Direction Inbound -Local
 New-NetFirewallRule -DisplayName "Allow Syncthing UDP" -Direction Inbound -LocalPort 22000,21027 -Protocol UDP -Action Allow
 New-VMSwitch -Name "USBIP Switch" -SwitchType Internal
 New-NetFirewallRule -DisplayName "usbipd - VM Switch Only" -Direction Inbound -LocalPort 3240 -Protocol TCP -Action Allow -InterfaceAlias "vEthernet (USBIP Switch)"
-New-NetFirewallRule -DisplayName "Block Public RPC" -Description "Block Public RPC and its dynamic ephemeral port range" -Direction Inbound -LocalPort 135,49152-65535 -Protocol TCP -Action Block -Profile Public
+New-NetFirewallRule -DisplayName "Block Public RPC" -Description "Block Public RPC and its dynamic ephemeral port range" -Direction Inbound -LocalPort 135,49152-65535 -Protocol TCP -Action Block
