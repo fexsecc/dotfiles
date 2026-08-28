@@ -39,11 +39,24 @@ if (Test-Path $TempDir) {
 New-Item -ItemType Directory -Path $TempDir | Out-Null
 Invoke-WebRequest -Uri $FontUrl -OutFile $ZipPath
 Expand-Archive -Path $ZipPath -DestinationPath $TempDir -Force
-$ShellApp = New-Object -ComObject Shell.Application
-$FontsFolder = $ShellApp.Namespace(0x14)
+$FontRegPath = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts"
 $FontFiles = Get-ChildItem -Path $TempDir -Filter "*.ttf" -Recurse
+
 foreach ($Font in $FontFiles) {
-    $FontsFolder.CopyHere($Font.FullName, 16)
+    $Destination = Join-Path -Path $env:windir -ChildPath "Fonts\$($Font.Name)"
+    
+    if (Test-Path -Path $Destination) {
+        continue
+    }
+
+    try {
+        Copy-Item -Path $Font.FullName -Destination $Destination -Force -ErrorAction Stop
+        
+        $RegName = "$($Font.BaseName) (TrueType)"
+        Set-ItemProperty -Path $FontRegPath -Name $RegName -Value $Font.Name
+    } catch {
+        Write-Warning "Skipping $($Font.Name): File is actively in use by another process."
+    }
 }
 Remove-Item -Path $TempDir -Recurse -Force
 
