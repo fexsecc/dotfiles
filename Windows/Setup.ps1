@@ -46,3 +46,6 @@ foreach ($Font in $FontFiles) {
     $FontsFolder.CopyHere($Font.FullName, 16)
 }
 Remove-Item -Path $TempDir -Recurse -Force
+
+# Call network setup and service disabling script
+& ".\NetSetup.ps1"
