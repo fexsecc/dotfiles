@@ -37,7 +37,7 @@ New-NetFirewallRule -DisplayName "Allow Syncthing TCP" -Direction Inbound -Local
 New-NetFirewallRule -DisplayName "Allow Syncthing UDP" -Direction Inbound -LocalPort 22000,21027 -Protocol UDP -Action Allow
 # usbipd
 $Sw = Get-VMSwitch -Name "USBIP Switch" -ErrorAction SilentlyContinue
-if ($Sw) {
+if (!$Sw) {
     New-VMSwitch -Name "USBIP Switch" -SwitchType Internal
 }
 New-NetFirewallRule -DisplayName "usbipd - VM Switch Only" -Direction Inbound -LocalPort 3240 -Protocol TCP -Action Allow -InterfaceAlias "vEthernet (USBIP Switch)"
