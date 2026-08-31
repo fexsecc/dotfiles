@@ -32,8 +32,14 @@ Set-ItemProperty -Path $registryPath -Name "EnableMulticast" -Value 0
 # Firewall Setup
 Get-NetFirewallRule | Remove-NetFirewallRule
 Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled True -DefaultInboundAction Block -DefaultOutboundAction Allow
+# Syncthing
 New-NetFirewallRule -DisplayName "Allow Syncthing TCP" -Direction Inbound -LocalPort 22000 -Protocol TCP -Action Allow
 New-NetFirewallRule -DisplayName "Allow Syncthing UDP" -Direction Inbound -LocalPort 22000,21027 -Protocol UDP -Action Allow
-New-VMSwitch -Name "USBIP Switch" -SwitchType Internal
+# usbipd
+$Sw = Get-VMSwitch -Name "USBIP Switch" -ErrorAction SilentlyContinue
+if ($Sw) {
+    New-VMSwitch -Name "USBIP Switch" -SwitchType Internal
+}
 New-NetFirewallRule -DisplayName "usbipd - VM Switch Only" -Direction Inbound -LocalPort 3240 -Protocol TCP -Action Allow -InterfaceAlias "vEthernet (USBIP Switch)"
+# misc
 New-NetFirewallRule -DisplayName "Block Public RPC" -Description "Block Public RPC and its dynamic ephemeral port range" -Direction Inbound -LocalPort 135,49152-65535 -Protocol TCP -Action Block
