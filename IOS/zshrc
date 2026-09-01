@@ -1,0 +1,63 @@
+export LC_ALL="UTF-8"
+export LANG="UTF-8"
+export TMUX_TMPDIR="/tmp"
+
+autoload -Uz compinit promptinit
+compinit
+promptinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ":completion:*:commands" rehash 1
+setopt autocd # cd just by typing name
+setopt interactivecomments # allow comments in interactive mode
+setopt nonomatch # hide error message if nothing is found
+setopt notify # report status of bg jobs immediately
+setopt numericglobsort # sort items from A-Z when it makes sense
+setopt promptsubst # enable cmd subst in prompt
+
+WORDCHARS=${WORDCHARS//\/} # Don't consider certain chars part of the word
+
+# hide stupid '%' sign
+PROMPT_EOL_MARK=""
+
+bindkey '^R' history-incremental-search-backward
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
+bindkey '^[[3~' delete-char
+
+HISTFILE=~/.config/zsh/zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+
+# enable syntax-highlighting
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# configure prompt
+PS1='%F{yellow}%n@%m[%~]$ '
+
+#highlight matches in red with grep
+alias grep="grep --color=always"
+
+plugins=(git ssh-agent)
+
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -la"
+alias cls="clear"
+alias vim="nvim"
+alias neofetch="screenfetch"
+alias cat="bat --paging=never"
+alias venvrn="python -m venv venv; source ./venv/bin/activate"
+alias python=python3
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
