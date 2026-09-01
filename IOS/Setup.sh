@@ -8,8 +8,13 @@ cd "${0:A:h}"
 export LC_ALL=C
 export LANG=C
 
+# Trust jb repos in the CLI as well
+# (GUI managers like Sileo are trusted due to external auth)
+sudo sed -i '/URIs: https:\/\/ellekit.space\//a Trusted: yes' /var/jb/etc/apt/sources.list.d/*.sources
+sudo sed -i '/URIs: http:\/\/apt.thebigboss.org\/repofiles\/cydia\//a Trusted: yes' /var/jb/etc/apt/sources.list.d/*.sources
+
 # Needed pkgs
-UpdCmd="sudo apt -y update && sudo apt -y upgrade; sudo apt install sed gawk tmux"
+UpdCmd="sudo apt -y update && sudo apt -y --allow-downgrades upgrade; sudo apt install sed gawk tmux"
 echo "$UpdCmd"
 eval "$UpdCmd"
 
