@@ -8,6 +8,11 @@ cd "${0:A:h}"
 export LC_ALL=C
 export LANG=C
 
+# Needed pkgs
+UpdCmd="sudo apt -y update && sudo apt -y upgrade; sudo apt install sed gawk tmux"
+echo "$UpdCmd"
+eval "$UpdCmd"
+
 
 CopyConfig() {
     local TargetFile=$1
@@ -25,6 +30,11 @@ CopyConfig() {
 CopyConfig "./zshrc" "$HOME" ".zshrc"
 mkdir -p "$HOME/.config/zsh/"
 touch "$HOME/.config/zsh/zsh_history"
+
+# Variables required for tmux to function on iOS
+export LC_ALL="UTF-8"
+export LANG="UTF-8"
+export TMUX_TMPDIR="/tmp"
 
 # Configure tmux and tpm plugins
 CopyConfig "./tmux.conf" "$HOME/.config/tmux" "tmux.conf"
