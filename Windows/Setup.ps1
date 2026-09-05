@@ -82,3 +82,6 @@ Remove-Item -Path $TempDir -Recurse -Force
 & ".\NetSetup.ps1"
 # Overwrite hosts with custom file
 Copy-Item "$PSScriptRoot\..\Misc\windows_hosts" "C:\Windows\System32\drivers\etc\hosts" -Force
+
+Write-Host -NoNewLine 'Press any key to exit...';
+$null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
