@@ -1,14 +1,6 @@
 # If not running with administrative privileges...
 If (-not $wid.IsInRole($adminrole)) {
-    # Prepare to relaunch the script with elevated rights
-    $newProcess = New-Object System.Diagnostics.ProcessStartInfo "PowerShell"
-    # Pass the current script's path as argument so it relaunches itself
-    $newProcess.Arguments = $myInvocation.MyCommand.Definition
-    # Use 'runas' to trigger UAC elevation prompt
-    $newProcess.Verb = "runas"
-    # Start the new elevated process
-    [System.Diagnostics.Process]::Start($newProcess)
-    # Exit the current (non-elevated) process to avoid duplicate execution
+    throw "Script must be run as admin"
     exit
 }
 
