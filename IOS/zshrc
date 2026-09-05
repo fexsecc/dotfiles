@@ -38,16 +38,16 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 
-# enable syntax-highlighting
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # configure prompt
 PS1='%F{yellow}%n@%m[%~]$ '
 
 #highlight matches in red with grep
 alias grep="grep --color=always"
 
-plugins=(git ssh-agent)
+# Source plugins
+source /var/jb/usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /var/jb/usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+plugins=(git ssh-agent zsh-autosuggestions zsh-syntax-highlighting)
 
 alias l="ls"
 alias ll="ls -l"
@@ -61,3 +61,4 @@ alias python=python3
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export PATH="/var/jb/var/mobile/.local/bin:$PATH"
