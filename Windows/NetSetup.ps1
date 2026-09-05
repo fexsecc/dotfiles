@@ -55,5 +55,9 @@ if (!$Sw) {
     New-VMSwitch -Name "USBIP Switch" -SwitchType Internal
 }
 New-NetFirewallRule -DisplayName "usbipd - VM Switch Only" -Direction Inbound -LocalPort 3240 -Protocol TCP -Action Allow -InterfaceAlias "vEthernet (USBIP Switch)"
-# misc
-New-NetFirewallRule -DisplayName "Block Public RPC" -Description "Block Public RPC and its dynamic ephemeral port range" -Direction Inbound -LocalPort 135,49152-65535 -Protocol TCP -Action Block
+# Misc rules
+New-NetFirewallRule -DisplayName "Block Public RPC" -Description "Block Public RPC" -Direction Inbound -LocalPort 135 -Protocol TCP -Action Block
+# Logitech slop
+New-NetFirewallRule -DisplayName "Block LogiOptionsPlus UDP broadcast" -Description "Block the Flow feature UDP broadcast" -Direction Inbound -LocalPort 59870,59871 -Protocol UDP -Action Block
+New-NetFirewallRule -DisplayName "Block LogiOptionsPlus TCP discovery" -Description "Block the Flow feature TCP discovery" -Direction Inbound -LocalPort 59869 -Protocol TCP -Action Block
+New-NetFirewallRule -DisplayName "Block LogiOptionsPlus plugins websocket" -Description "Block the port used for plugins such as Adobe Photoshop plugin" -Direction Inbound -LocalPort 19010 -Protocol TCP -Action Block
