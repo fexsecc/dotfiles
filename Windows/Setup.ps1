@@ -74,5 +74,8 @@ Remove-Item -Path $TempDir -Recurse -Force
 # Overwrite hosts with custom file
 Copy-Item "$PSScriptRoot\..\Misc\windows_hosts" "C:\Windows\System32\drivers\etc\hosts" -Force
 
+# Reg tweaks
+reg import "$PSScriptRoot\..\Misc\remediation_CVE-2013-3900.reg"
+
 Write-Host -NoNewLine 'Press any key to exit...';
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
