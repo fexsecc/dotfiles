@@ -9,7 +9,7 @@ Set-PSReadlineOption -BellStyle None
 
 #$Env:KOMOREBI_CONFIG_HOME = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\komorebi'
 $Env:NODE_REPL_HISTORY = $ENV:HOMEDRIVE + $ENV:HOMEPATH + '\.config\node\node_repl_history'
-$Env:HCLI_CURRENT_IDA_INSTALL_DIR = "C:\Program Files\IDA Professional 9.3"
+$Env:HCLI_CURRENT_IDA_INSTALL_DIR = (Get-ChildItem -Path "$env:ProgramFiles" -Filter "IDA Professional *" -ErrorAction SilentlyContinue | Select-Object -Last 1 -ExpandProperty FullName)
 
 #function prompt {
 #    $p = $executionContext.SessionState.Path.CurrentLocation
