@@ -2,7 +2,6 @@
 set history save on
 set history filename ~/.gdb_history
 set history size unlimited
-set history remove-duplicates on
 # Plugins
 add-auto-load-safe-path /root/.gdbinit
 source /opt/pwndbg/gdbinit.py
