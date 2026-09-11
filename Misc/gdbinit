@@ -1,5 +1,11 @@
+# Set history file location
+set history save on
+set history filename ~/.gdb_history
+set history size unlimited
+set history remove-duplicates on
+# Plugins
 add-auto-load-safe-path /root/.gdbinit
-source ~/.gdbinit_pwndbg
+source /opt/pwndbg/gdbinit.py
 set debuginfod enabled on
 set print asm-demangle on
 source /opt/splitmind/gdbinit.py
