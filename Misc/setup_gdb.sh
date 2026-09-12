@@ -7,10 +7,12 @@ cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 
 # Setup gdb
 mkdir -p ~/.config/gdb
-rm -f ~/.gdbinit
+rm -f ~/.config/gdb/gdbinit ~/.gdbinit
 cmd="sudo chown -R $USER:$USER /opt"
 echo cmd
 eval "$cmd"
+# Instead of git pull for updates
+rm -rf /opt/splitmind
 git clone https://github.com/jerdna-regeiz/splitmind /opt/splitmind
 # The order matters here, as splitmind
 # expects pwndbg to be already sourced

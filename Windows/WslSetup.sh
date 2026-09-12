@@ -38,7 +38,7 @@ fi
 "$TpmDir/bin/update_plugins" all
 
 # Setup GDB config
-../Misc/setup_gdb.sh
+bash ../Misc/setup_gdb.sh
 
 # QoL: Change back to initial dir
 cd -
