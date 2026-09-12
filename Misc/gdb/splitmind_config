@@ -1,0 +1,10 @@
+source /opt/splitmind/gdbinit.py
+python
+import splitmind
+(splitmind.Mind()
+  .right(of="main", display="disasm", size="60%")
+  .below(of="main", display="backtrace", size="25%")
+  .below(of="disasm", display="regs", size="55%")
+  .show("legend", on="disasm")
+).build()
+end

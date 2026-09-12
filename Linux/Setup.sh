@@ -49,3 +49,9 @@ if [ ! -d "$TpmDir" ]; then
 fi
 "$TpmDir/bin/install_plugins"
 "$TpmDir/bin/update_plugins" all
+
+# Setup GDB config
+../Misc/setup_gdb.sh
+
+# QoL: Change back to initial dir
+cd -

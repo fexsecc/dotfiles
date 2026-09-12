@@ -2,6 +2,9 @@
 
 set -eu
 
+# Change directory to the script's actual location
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
 CopyConfig() {
     local TargetFile=$1
     local WslPath="./Wsl/${TargetFile}"
@@ -33,3 +36,10 @@ if [ ! -d "$TpmDir" ]; then
 fi
 "$TpmDir/bin/install_plugins"
 "$TpmDir/bin/update_plugins" all
+
+# Setup GDB config
+../Misc/setup_gdb.sh
+
+# QoL: Change back to initial dir
+cd -
+
