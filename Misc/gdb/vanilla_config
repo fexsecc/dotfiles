@@ -1,6 +1,6 @@
 # Set history file location
 set history save on
-set history filename ~/.gdb_history
+set history filename ~/.config/gdb/history
 set history size unlimited
 # Fetch symbols from available servers
 set debuginfod enabled on
