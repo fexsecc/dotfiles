@@ -1,44 +1,45 @@
-#!/bin/bash
+#!/bin/sh
 
 set -eu
 
 # Change directory to the script's actual location
-cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+cd "$SCRIPT_DIR"
 
 CopyConfig() {
-    local TargetFile=$1
-    local WslPath="./Wsl/${TargetFile}"
-    local FallbackPath="../Linux/Cli/${TargetFile}"
-    local DestinationDir=$2
-    local OutputFileName=${3:-$TargetFile}
+    TargetFile=$1
+    WslPath="./Wsl/${TargetFile}"
+    FallbackPath="../Linux/Cli/${TargetFile}"
+    DestinationDir=$2
+    OutputFileName=${3:-$TargetFile}
 
-    /bin/mkdir -p "$DestinationDir"
+    mkdir -p "$DestinationDir"
 
 
     if [ -f "$WslPath" ]; then
-        /bin/cp "$WslPath" "${DestinationDir}/${OutputFileName}"
+        cp "$WslPath" "${DestinationDir}/${OutputFileName}"
     elif [ -f "$FallbackPath" ]; then
-        /bin/cp "$FallbackPath" "${DestinationDir}/${OutputFileName}"
+        cp "$FallbackPath" "${DestinationDir}/${OutputFileName}"
     fi
     # Strip CRLF if needed
-    /bin/sed -i 's/\r$//' "${DestinationDir}/${OutputFileName}"
+    sed -i 's/\r$//' "${DestinationDir}/${OutputFileName}"
 }
 
 # Configure zsh
 CopyConfig "zshrc" "$HOME" ".zshrc"
-/bin/mkdir -p "$HOME/.config/zsh/"
-/bin/touch "$HOME/.config/zsh/zsh_history"
+mkdir -p "$HOME/.config/zsh/"
+touch "$HOME/.config/zsh/zsh_history"
 # Configure tmux and tpm plugins
 CopyConfig "tmux.conf" "$HOME/.config/tmux"
 TpmDir="$HOME/.config/tmux/plugins/tpm"
 if [ ! -d "$TpmDir" ]; then
-    /bin/git clone https://github.com/tmux-plugins/tpm "$TpmDir"
+    git clone https://github.com/tmux-plugins/tpm "$TpmDir"
 fi
 "$TpmDir/bin/install_plugins"
 "$TpmDir/bin/update_plugins" all
 
 # Setup GDB config
-bash ../Misc/setup_gdb.sh
+../Misc/setup_gdb.sh
 
 # QoL: Change back to initial dir
 cd -
