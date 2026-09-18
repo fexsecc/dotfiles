@@ -29,17 +29,17 @@ CopyConfig() {
 }
 
 # Configure zsh
-CopyConfig "./Cli/zshrc" "$USER_HOME" ".zshrc"
-mkdir -p "$USER_HOME/.config/zsh/"
-touch "$USER_HOME/.config/zsh/zsh_history"
+CopyConfig "./Cli/zshrc" "$HOME" ".zshrc"
+mkdir -p "$HOME/.config/zsh/"
+touch "$HOME/.config/zsh/zsh_history"
 
 # Configure alacritty
-mkdir -p "$USER_HOME/.config/alacritty/"
-CopyConfig "./Cli/alacritty.toml" "$USER_HOME/.config/alacritty" "alacritty.toml"
+mkdir -p "$HOME/.config/alacritty/"
+CopyConfig "./Cli/alacritty.toml" "$HOME/.config/alacritty" "alacritty.toml"
 
 # Configure tmux and tpm plugins
-CopyConfig "./Cli/tmux.conf" "$USER_HOME/.config/tmux" "tmux.conf"
-TpmDir="$USER_HOME/.config/tmux/plugins/tpm"
+CopyConfig "./Cli/tmux.conf" "$HOME/.config/tmux" "tmux.conf"
+TpmDir="$HOME/.config/tmux/plugins/tpm"
 if [ ! -d "$TpmDir" ]; then
     git clone https://github.com/tmux-plugins/tpm "$TpmDir"
 fi

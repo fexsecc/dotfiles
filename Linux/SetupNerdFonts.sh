@@ -1,15 +1,11 @@
 #!/bin/sh
 
+set -eux
+
 # Installs Nerd fonts
 if [ "$(id -u)" -ne 0 ]; then
     echo "Root privileges are required to install fonts globally." >&2
     exit 1
-fi
-
-if [ -n "${SUDO_USER:-}" ] && [ "$SUDO_USER" != "root" ]; then
-    USER_HOME=$(getent passwd "$SUDO_USER" | cut -d: -f6)
-else
-    USER_HOME=${HOME:-/root}
 fi
 
 TEMP_DIR=$(mktemp -d)
