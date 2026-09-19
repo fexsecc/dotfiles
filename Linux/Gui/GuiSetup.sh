@@ -33,4 +33,4 @@ cp -r ./waybar/ "$XDG_CONFIG_HOME/"
 cp ./zprofile "$HOME/.zprofile"
 
 mkdir -p "$HOME/.config/dunst/"
-CopyConfig "./dunstrc" "$HOME/.config/dunstrc" "dunstrc"
+CopyConfig "./dunstrc" "$HOME/.config/dunst" "dunstrc"
