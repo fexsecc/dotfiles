@@ -23,10 +23,11 @@ local keepass = "keepassxc"
 local discord = "vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
 local screenshot = "flameshot gui"
 local vm = "virt-manager"
+local lock = "hyprlock"
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 hl.on("hyprland.start", function()
-    hl.exec_cmd("waybar & hyprpaper & hypridle")
+    hl.exec_cmd("waybar")
     hl.exec_cmd("nm-applet --indicator")
     hl.exec_cmd("vicinae server")
 end)
@@ -134,8 +135,10 @@ hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(notes))
 hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd(keepass))
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd(discord))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
 hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd(vm))
+-- Win-Style keybinds
+hl.bind("SUPER + L", hl.dsp.exec_cmd(lock))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd(screenshot))
 
 -- DWM-like window navigation
 hl.bind(mainMod .. " + m", hl.dsp.group.toggle())
