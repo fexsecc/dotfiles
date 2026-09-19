@@ -14,6 +14,9 @@ fi
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$SCRIPT_DIR"
 
+# Make sure we have required packages
+sudo pacman -S --needed zsh tmux unzip nvim base-devel nodejs npm gdb
+
 sudo ./SetupNerdFonts.sh
 
 CopyConfig() {
