@@ -1,6 +1,6 @@
 #!/bin/sh
 
-yay --needed -S hyprland uwsm libnewt hyprpaper hyprlock hypridle dunst
+yay --needed -S hyprland uwsm libnewt waybar hyprpaper hyprlock hypridle dunst alacritty
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
