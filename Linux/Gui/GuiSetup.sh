@@ -35,3 +35,6 @@ cp ./zprofile "$HOME/.zprofile"
 
 mkdir -p "$HOME/.config/dunst/"
 CopyConfig "./dunstrc" "$HOME/.config/dunst" "dunstrc"
+
+systemctl --user enable hypridle.service
+systemctl --user enable hyprpaper.service
