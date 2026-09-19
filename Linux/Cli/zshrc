@@ -55,6 +55,17 @@ setopt HIST_REDUCE_BLANKS
 
 # configure prompt
 PS1='%F{green}%n@%m[%~]$ '
+
+# Enable ssh-agent if present on system
+if command -v ssh-agent >/dev/null 2>&1; then
+    if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+        ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+    fi
+    if [ ! -f "$SSH_AUTH_SOCK" ]; then
+        source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+    fi
+fi
+
 # highlight matches in red with grep
 alias grep="grep --color=always"
 alias ls="eza --icons --group-directories-first"

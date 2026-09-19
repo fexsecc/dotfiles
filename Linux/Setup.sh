@@ -52,5 +52,9 @@ fi
 # Setup GDB config
 ../Misc/setup_gdb.sh
 
+# SSH config
+mkdir -p "$HOME/.ssh/"
+CopyConfig "../Misc/ssh_config" "$HOME/.ssh/" "config"
+
 # QoL: Change back to initial dir
 cd -
