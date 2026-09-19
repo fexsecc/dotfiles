@@ -29,6 +29,7 @@ CopyConfig() {
 }
 
 cp -r ./hypr/ "$XDG_CONFIG_HOME/"
+cp ../../Assets/nasa.jpg "$XDG_CONFIG_HOME/hypr/"
 cp -r ./waybar/ "$XDG_CONFIG_HOME/"
 cp ./zprofile "$HOME/.zprofile"
 
