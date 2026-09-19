@@ -1,8 +1,9 @@
 #!/bin/sh
 
-yay --needed -S hyprland uwsm libnewt waybar hyprpaper hyprlock hypridle \
+yay --needed -S \
+    hyprland uwsm libnewt waybar hyprpaper hyprlock hypridle \
     dunst alacritty network-manager-applet \
-    pcmanfm grim slurp wl-clipboard
+    pcmanfm grim slurp wl-clipboard blueman
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
