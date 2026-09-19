@@ -16,9 +16,9 @@
 
 hl.monitor({
     output = "eDP-1",
-    mode = "1920x1080@144",
+    mode = "1920x1080@60",
     position = "0x0",
-    scale = "1.0",
+    scale = "1.2",
 })
 
 -- Quick plug monitors with their negotiated settings
@@ -65,123 +65,6 @@ local vm = "virt-manager"
 hl.env("GDK_SCALE", "2")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
-hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
-hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
-hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
-hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
-hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
-hl.animation({
-    leaf = "global",
-    enabled = true,
-    speed = 10,
-    bezier = "default",
-})
-hl.animation({
-    leaf = "border",
-    enabled = true,
-    speed = 5.39,
-    bezier = "easeOutQuint",
-})
-hl.animation({
-
-    leaf = "windows",
-    enabled = true,
-    speed = 4.79,
-    bezier = "easeOutQuint",
-})
-hl.animation({
-    leaf = "windowsIn",
-    enabled = true,
-    speed = 4.1,
-    bezier = "easeOutQuint",
-    style = "popin 87%",
-})
-hl.animation({
-    leaf = "windowsOut",
-    enabled = true,
-    speed = 1.49,
-    bezier = "linear",
-    style = "popin 87%",
-})
-hl.animation({
-    leaf = "fadeIn",
-    enabled = true,
-    speed = 1.73,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "fadeOut",
-    enabled = true,
-    speed = 1.46,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "fade",
-    enabled = true,
-    speed = 3.03,
-    bezier = "quick",
-})
-hl.animation({
-    leaf = "layers",
-    enabled = true,
-    speed = 3.81,
-    bezier = "easeOutQuint",
-})
-hl.animation({
-    leaf = "layersIn",
-    enabled = true,
-    speed = 4,
-    bezier = "easeOutQuint",
-    style = "fade",
-})
-hl.animation({
-    leaf = "layersOut",
-    enabled = true,
-    speed = 1.5,
-    bezier = "linear",
-    style = "fade",
-})
-hl.animation({
-    leaf = "fadeLayersIn",
-    enabled = true,
-    speed = 1.79,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "fadeLayersOut",
-    enabled = true,
-    speed = 1.39,
-    bezier = "almostLinear",
-})
-hl.animation({
-    leaf = "workspaces",
-    enabled = true,
-    speed = 1.94,
-    bezier = "almostLinear",
-    style = "fade",
-})
-hl.animation({
-
-    leaf = "workspacesIn",
-    enabled = true,
-    speed = 1.21,
-    bezier = "almostLinear",
-    style = "fade",
-})
-hl.animation({
-    leaf = "workspacesOut",
-    enabled = true,
-    speed = 1.94,
-    bezier = "almostLinear",
-    style = "fade",
-})
-hl.animation({
-    leaf = "zoomFactor",
-    enabled = true,
-    speed = 7,
-    bezier = "quick",
-})
 
 hl.env("FONT_NAME", "JetBrainsMono Nerd Font 14")
 hl.env("DOCUMENT_FONT_NAME", "JetBrainsMono  Nerd Font 14")
@@ -284,27 +167,27 @@ hl.bind("SUPER + SHIFT + 2", hl.dsp.window.move({ monitor = "1" }))
 hl.bind("SUPER + SHIFT + 3", hl.dsp.window.move({ monitor = "2" }))
 hl.bind("SUPER + SHIFT + 4", hl.dsp.window.move({ monitor = "3" }))
 
-hl.bind(mainMod .. " + 1", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 1"))
-hl.bind(mainMod .. " + 2", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 2"))
-hl.bind(mainMod .. " + 3", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 3"))
-hl.bind(mainMod .. " + 4", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 4"))
-hl.bind(mainMod .. " + 5", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 5"))
-hl.bind(mainMod .. " + 6", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 6"))
-hl.bind(mainMod .. " + 7", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 7"))
-hl.bind(mainMod .. " + 8", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 8"))
-hl.bind(mainMod .. " + 9", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 9"))
-hl.bind(mainMod .. " + 0", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh workspace 10"))
+hl.bind(mainMod .. " + 1", hl.dsp.focus({workspace = 1}))
+hl.bind(mainMod .. " + 2", hl.dsp.focus({workspace = 2}))
+hl.bind(mainMod .. " + 3", hl.dsp.focus({workspace = 3}))
+hl.bind(mainMod .. " + 4", hl.dsp.focus({workspace = 4}))
+hl.bind(mainMod .. " + 5", hl.dsp.focus({workspace = 5}))
+hl.bind(mainMod .. " + 6", hl.dsp.focus({workspace = 6}))
+hl.bind(mainMod .. " + 7", hl.dsp.focus({workspace = 7}))
+hl.bind(mainMod .. " + 8", hl.dsp.focus({workspace = 8}))
+hl.bind(mainMod .. " + 9", hl.dsp.focus({workspace = 9}))
+hl.bind(mainMod .. " + 0", hl.dsp.focus({workspace = 10}))
 
-hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 1"))
-hl.bind(mainMod .. " + SHIFT + 2", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 2"))
-hl.bind(mainMod .. " + SHIFT + 3", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 3"))
-hl.bind(mainMod .. " + SHIFT + 4", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 4"))
-hl.bind(mainMod .. " + SHIFT + 5", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 5"))
-hl.bind(mainMod .. " + SHIFT + 6", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 6"))
-hl.bind(mainMod .. " + SHIFT + 7", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 7"))
-hl.bind(mainMod .. " + SHIFT + 8", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 8"))
-hl.bind(mainMod .. " + SHIFT + 9", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 9"))
-hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.exec_cmd("~/.config/hypr/WorkspaceAction.sh movetoworkspace 10"))
+hl.bind(mainMod .. " + SHIFT + 1", hl.dsp.window.move({workspace = 1}))
+hl.bind(mainMod .. " + SHIFT + 2", hl.dsp.window.move({workspace = 2}))
+hl.bind(mainMod .. " + SHIFT + 3", hl.dsp.window.move({workspace = 3}))
+hl.bind(mainMod .. " + SHIFT + 4", hl.dsp.window.move({workspace = 4}))
+hl.bind(mainMod .. " + SHIFT + 5", hl.dsp.window.move({workspace = 5}))
+hl.bind(mainMod .. " + SHIFT + 6", hl.dsp.window.move({workspace = 6}))
+hl.bind(mainMod .. " + SHIFT + 7", hl.dsp.window.move({workspace = 7}))
+hl.bind(mainMod .. " + SHIFT + 8", hl.dsp.window.move({workspace = 8}))
+hl.bind(mainMod .. " + SHIFT + 9", hl.dsp.window.move({workspace = 9}))
+hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({workspace = 10}))
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
@@ -378,7 +261,7 @@ hl.config({
     general = {
         gaps_in = 0,
         gaps_out = 0,
-        border_size = 1,
+        border_size = 2,
         -- https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
         col = {
             active_border = { colors = { "rgb(59278f)", "rgb(59278f)" } },
@@ -458,7 +341,7 @@ hl.config({
         follow_mouse = 1,
         sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
         touchpad = {
-            natural_scroll = false,
+            natural_scroll = true,
         },
         repeat_delay = 200,
         repeat_rate = 50,
