@@ -21,7 +21,7 @@ local browser = "chromium --enable-features=UseOzonePlatform --ozone-platform=wa
 local notes = "logseq-desktop-electron --enable-features=UseOzonePlatform --ozone-platform=wayland"
 local keepass = "keepassxc"
 local discord = "vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
-local screenshot = "flameshot gui"
+local screenshot = 'grim -g "$(slurp)" - | wl-copy'
 local vm = "virt-manager"
 local lock = "hyprlock"
 
