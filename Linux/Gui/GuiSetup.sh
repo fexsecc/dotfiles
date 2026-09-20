@@ -62,3 +62,9 @@ systemctl --user restart darkman.service
 CopyConfig "./misc/mimeapps.list" "$XDG_CONFIG_HOME"
 # Audio
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
+# pcmanfm-qt config
+CopyConfig "./misc/pcmanfm-qt/settings.conf" "$XDG_CONFIG_HOME/pcmanfm-qt/default/"
+sed -i s/user123/$USER/g "$XDG_CONFIG_HOME/pcmanfm-qt/default/settings.conf"
+# file picker bookmarks
+CopyConfig "./misc/gtk-3.0/bookmarks" "$XDG_CONFIG_HOME/gtk-3.0/"
+sed -i s/user123/$USER/g "$XDG_CONFIG_HOME/gtk-3.0/bookmarks"
