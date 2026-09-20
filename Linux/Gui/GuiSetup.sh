@@ -7,7 +7,8 @@ yay --needed -S \
     pcmanfm grim slurp wl-clipboard blueman \
     brightnessctl darkman xdg-desktop-portal \
     xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
-    zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin
+    zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
+    vesktop-bin
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
