@@ -9,7 +9,7 @@ yay --needed -S \
     xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
     zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
-    vesktop-bin pavucontrol pamixer
+    vesktop-bin pavucontrol pamixer otf-font-awesome
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
