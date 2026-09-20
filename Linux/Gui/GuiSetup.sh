@@ -49,5 +49,7 @@ CopyConfig "./misc/dunstrc" "$XDG_CONFIG_HOME/dunst" "dunstrc"
 # geoclue - D-Bus service for geolocation. Used for darkman
 sudo cp ./misc/geoclue.conf /etc/geoclue/
 # darkman - switch between light/dark mode depending on time
-CopyConfig "./misc/darkman_config.yaml" "$XDG_CONFIG_HOME/darkman" "config.yaml"
+CopyConfig "./misc/darkman/config.yaml" "$XDG_CONFIG_HOME/darkman"
+# For some reason uses XDG_DATA_HOME
+CopyConfig "./misc/darkman/scripts/notify_theme_changed.sh" "$XDG_DATA_HOME/darkman"
 systemctl --user enable --now darkman.service
