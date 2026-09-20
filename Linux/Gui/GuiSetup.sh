@@ -3,13 +3,14 @@
 yay --needed -S \
     hyprland uwsm libnewt waybar \
     hyprpaper   hyprlock hypridle \
-    dunst alacritty network-manager-applet \
-    pcmanfm grim slurp wl-clipboard blueman \
-    brightnessctl darkman xdg-desktop-portal \
+    dunst alacritty    network-manager-applet \
+    pcmanfm-qt grim slurp wl-clipboard blueman \
+    brightnessctl    darkman xdg-desktop-portal \
     xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
     zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
-    vesktop-bin pavucontrol pamixer otf-font-awesome
+    vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb \
+    kvantum qt5-wayland qt6-wayland papirus-icon-theme
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors

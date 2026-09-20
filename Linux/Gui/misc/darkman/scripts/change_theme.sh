@@ -8,6 +8,7 @@ case "$MODE" in
         THEME="dark-theme"
         GTK_THEME="Adwaita-dark"
         COLOR_SCHEME="prefer-dark"
+        KV_THEME="KvArcDark"
         MSG="Dark mode activated"
         ;;
     *light*)
@@ -15,6 +16,7 @@ case "$MODE" in
         THEME="light-theme"
         GTK_THEME="Adwaita"
         COLOR_SCHEME="prefer-light"
+        KV_THEME="KvArc"
         MSG="Light mode activated"
         ;;
     *)
@@ -23,7 +25,11 @@ case "$MODE" in
         ;;
 esac
 
+# Apply GTK and Portal themes
 gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME"
 gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
+
+# Apply Qt / Kvantum themes
+kvantummanager --set "$KV_THEME"
 
 notify-send "Darkman theme selector" "$MSG"

@@ -15,7 +15,7 @@ hl.monitor({
 })
 
 local terminal = "alacritty"
-local fileManager = "pcmanfm"
+local fileManager = "pcmanfm-qt"
 local menu = "vicinae toggle"
 local browser = "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --incognito"
 local notes = "logseq-desktop-electron --enable-features=UseOzonePlatform --ozone-platform=wayland"
@@ -43,6 +43,7 @@ hl.env("DOCUMENT_FONT_NAME", "JetBrainsMono  Nerd Font 14")
 hl.env("MONOSPACE_FONT_NAME", "JetBrainsMono Nerd Font 14")
 hl.env("FONT_ANTIALIASING", "rgba")
 hl.env("FONT_HINTING", "full")
+hl.env("QT_STYLE_OVERRIDE", "kvantum")
 
 -- Window rules
 hl.window_rule({
