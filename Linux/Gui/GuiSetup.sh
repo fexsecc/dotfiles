@@ -3,7 +3,8 @@
 yay --needed -S \
     hyprland uwsm libnewt waybar hyprpaper hyprlock hypridle \
     dunst alacritty network-manager-applet \
-    pcmanfm grim slurp wl-clipboard blueman
+    pcmanfm grim slurp wl-clipboard blueman \
+    brightnessctl
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
@@ -33,6 +34,7 @@ CopyConfig() {
 
 cp -r ./hypr/ "$XDG_CONFIG_HOME/"
 cp ../../Assets/nasa.jpg "$XDG_CONFIG_HOME/hypr/"
+cp ../../Assets/morfeu.jpg "$XDG_CONFIG_HOME/hypr/"
 cp -r ./waybar/ "$XDG_CONFIG_HOME/"
 cp ./zprofile "$HOME/.zprofile"
 
@@ -41,3 +43,5 @@ CopyConfig "./dunstrc" "$HOME/.config/dunst" "dunstrc"
 
 systemctl --user enable hypridle.service
 systemctl --user enable hyprpaper.service
+sudo usermod -aG input video $USER
+echo "[*] Reboot is required for groups to refresh"

@@ -300,6 +300,7 @@ label:focus {
 
 #scratchpad {
     background: rgba(0, 0, 0, 0.2);
+    color: #c6d0f5;
 }
 
 #scratchpad.empty {
