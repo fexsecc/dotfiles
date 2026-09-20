@@ -43,5 +43,5 @@ CopyConfig "./dunstrc" "$HOME/.config/dunst" "dunstrc"
 
 systemctl --user enable hypridle.service
 systemctl --user enable hyprpaper.service
-sudo usermod -aG input video $USER
+sudo usermod -aG video,input $USER
 echo "[*] Reboot is required for groups to refresh"
