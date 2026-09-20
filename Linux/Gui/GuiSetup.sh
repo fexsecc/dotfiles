@@ -4,7 +4,7 @@ yay --needed -S \
     hyprland uwsm libnewt waybar hyprpaper hyprlock hypridle \
     dunst alacritty network-manager-applet \
     pcmanfm grim slurp wl-clipboard blueman \
-    brightnessctl darkman geoclue
+    brightnessctl darkman
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
@@ -46,10 +46,9 @@ sudo usermod -aG video,input $USER
 echo "[*] Reboot is required for groups to refresh"
 # dunst notification daemon
 CopyConfig "./misc/dunstrc" "$XDG_CONFIG_HOME/dunst" "dunstrc"
-# geoclue - D-Bus service for geolocation. Used for darkman
-sudo cp ./misc/geoclue.conf /etc/geoclue/
-# darkman - switch between light/dark mode depending on time
+# darkman - switch between light/dark mode depending on sunset
 CopyConfig "./misc/darkman/config.yaml" "$XDG_CONFIG_HOME/darkman"
 # For some reason uses XDG_DATA_HOME
-CopyConfig "./misc/darkman/scripts/notify_theme_changed.sh" "$XDG_DATA_HOME/darkman"
-systemctl --user enable --now darkman.service
+CopyConfig "./misc/darkman/scripts/change_theme.sh" "$XDG_DATA_HOME/darkman"
+systemctl --user enable darkman.service
+systemctl --user restart darkman.service
