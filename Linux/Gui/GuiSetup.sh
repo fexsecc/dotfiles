@@ -8,7 +8,8 @@ yay --needed -S \
     brightnessctl darkman xdg-desktop-portal \
     xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
     zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
-    vesktop-bin
+    pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
+    vesktop-bin pavucontrol pamixer
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
@@ -58,3 +59,5 @@ systemctl --user enable darkman.service
 systemctl --user restart darkman.service
 # xdg-mime defaults for xdg-open
 CopyConfig "./misc/mimeapps.list" "$XDG_CONFIG_HOME"
+# Audio
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
