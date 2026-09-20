@@ -9,10 +9,10 @@
         "warp-on-scroll": false,
         "format": "{name} {icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "9": "",
+            //"1": "",
+            //"2": "",
+            //"3": "",
+            //"9": "",
             "urgent": "",
             "focused": "",
             //"default": ""
