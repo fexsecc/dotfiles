@@ -1,10 +1,13 @@
 #!/bin/sh
 
 yay --needed -S \
-    hyprland uwsm libnewt waybar hyprpaper hyprlock hypridle \
+    hyprland uwsm libnewt waybar \
+    hyprpaper   hyprlock hypridle \
     dunst alacritty network-manager-applet \
     pcmanfm grim slurp wl-clipboard blueman \
-    brightnessctl darkman
+    brightnessctl darkman xdg-desktop-portal \
+    xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
+    zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
@@ -52,3 +55,5 @@ CopyConfig "./misc/darkman/config.yaml" "$XDG_CONFIG_HOME/darkman"
 CopyConfig "./misc/darkman/scripts/change_theme.sh" "$XDG_DATA_HOME/darkman"
 systemctl --user enable darkman.service
 systemctl --user restart darkman.service
+# xdg-mime defaults for xdg-open
+CopyConfig "./misc/mimeapps.list" "$XDG_CONFIG_HOME"

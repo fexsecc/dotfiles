@@ -1,0 +1,18 @@
+[Added Associations]
+application/x-chrome-extension=chromium.desktop;
+
+[Default Applications]
+x-scheme-handler/http=ungoogled-chromium.desktop
+x-scheme-handler/https=ungoogled-chromium.desktop
+x-scheme-handler/about=ungoogled-chromium.desktop
+x-scheme-handler/unknown=ungoogled-chromium.desktop
+text/html=ungoogled-chromium.desktop
+application/pdf=org.pwmt.zathura.desktop
+application/epub+zip=org.pwmt.zathura.desktop
+application/x-cbz=org.pwmt.zathura.desktop
+application/x-cbr=org.pwmt.zathura.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+video/x-msvideo=mpv.desktop
+video/quicktime=mpv.desktop
