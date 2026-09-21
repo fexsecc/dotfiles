@@ -27,7 +27,7 @@ local lock = "hyprlock"
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 hl.on("hyprland.start", function()
-    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP && systemctl --user restart darkman.service")
     hl.exec_cmd("waybar")
     hl.exec_cmd("nm-applet --indicator")
     hl.exec_cmd("vicinae server")
