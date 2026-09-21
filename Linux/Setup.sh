@@ -15,7 +15,10 @@ SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$SCRIPT_DIR"
 
 # Make sure we have required packages
-sudo pacman -S --needed zsh tmux fontconfig unzip nvim base-devel nodejs npm gdb uv eza bat
+sudo pacman -S --needed \
+    zsh tmux fontconfig unzip nvim \
+    base-devel nodejs npm gdb uv eza bat \
+    zsh-autosuggestions zsh-syntax-highlighting
 
 sudo ./SetupNerdFonts.sh
 
