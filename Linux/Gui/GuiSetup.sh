@@ -13,6 +13,8 @@ fi
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$SCRIPT_DIR"
 
+mkdir -p "$HOME/Downloads/" "$HOME/Documents/" "$HOME/Pictures/"
+
 # Make sure yay is installed
 ../InstallYay.sh
 
