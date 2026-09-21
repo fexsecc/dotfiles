@@ -30,8 +30,8 @@ yay --needed -S \
     zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber  \
     vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb darkman \
-    kvantum qt5-wayland qt6-wayland papirus-icon-theme power-profiles-daemon \
-    qemu-desktop libvirt virt-manager git base-devel
+    kvantum qt5-wayland  qt6-wayland papirus-icon-theme power-profiles-daemon \
+    qemu-desktop libvirt virt-manager git base-devel dnsmasq edk2-ovmf nftables\
 
 # NOTE: cannot use for root owned dirs! (e.g. /etc/conf.d)
 CopyConfig() {
