@@ -8,8 +8,8 @@ yay --needed -S \
     brightnessctl    darkman xdg-desktop-portal \
     xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
     zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
-    pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
-    vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb \
+    pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber  \
+    vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb darkman \
     kvantum qt5-wayland qt6-wayland papirus-icon-theme power-profiles-daemon
 
 # -e — exit immediately if a command fails
