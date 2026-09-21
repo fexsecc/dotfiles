@@ -10,7 +10,7 @@ yay --needed -S \
     zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber \
     vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb \
-    kvantum qt5-wayland qt6-wayland papirus-icon-theme
+    kvantum qt5-wayland qt6-wayland papirus-icon-theme power-profiles-daemon
 
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
