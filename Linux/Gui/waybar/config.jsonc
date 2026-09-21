@@ -2,7 +2,7 @@
     "height": 5,
     "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/scratchpad", "custom/media"],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["mpd", "tray", "bluetooth", "cpu", "temperature", "memory", "pulseaudio", "backlight", "idle_inhibitor", "battery", "battery#bat2", "clock"],
+    "modules-right": ["mpd", "tray", "bluetooth", "cpu", "temperature", "memory", "pulseaudio", "backlight", "idle_inhibitor", "power-profiles-daemon", "battery", "battery#bat2", "clock"],
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": false,
@@ -178,5 +178,16 @@
         },
         "on-click": "blueman-manager",
         "tooltip-format-connected": "{device_enumerate}"
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
     }
 }
