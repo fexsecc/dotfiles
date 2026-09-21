@@ -1,17 +1,4 @@
 #!/bin/sh
-
-yay --needed -S \
-    hyprland uwsm libnewt waybar \
-    hyprpaper   hyprlock hypridle \
-    dunst alacritty    network-manager-applet \
-    pcmanfm-qt grim slurp wl-clipboard blueman \
-    brightnessctl    darkman xdg-desktop-portal \
-    xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
-    zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
-    pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber  \
-    vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb darkman \
-    kvantum qt5-wayland qt6-wayland papirus-icon-theme power-profiles-daemon
-
 # -e — exit immediately if a command fails
 # -u — treat unset variables as errors
 # -x — print commands before executing them
@@ -25,6 +12,21 @@ fi
 # Change directory to the script's actual location
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$SCRIPT_DIR"
+
+# Make sure yay is installed
+../InstallYay.sh
+
+yay --needed -S \
+    hyprland uwsm libnewt waybar \
+    hyprpaper   hyprlock hypridle \
+    dunst alacritty    network-manager-applet \
+    pcmanfm-qt grim slurp wl-clipboard blueman \
+    brightnessctl    darkman xdg-desktop-portal \
+    xdg-desktop-portal-hyprland xdg-desktop-portal-gtk  \
+    zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
+    pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber  \
+    vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb darkman \
+    kvantum qt5-wayland qt6-wayland papirus-icon-theme power-profiles-daemon
 
 # NOTE: cannot use for root owned dirs! (e.g. /etc/conf.d)
 CopyConfig() {
