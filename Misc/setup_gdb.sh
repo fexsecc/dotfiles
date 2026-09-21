@@ -8,7 +8,7 @@ cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
 # Setup gdb
 mkdir -p ~/.config/gdb
 rm -f ~/.config/gdb/gdbinit ~/.gdbinit
-cmd="sudo chown -R $USER:$USER /opt"
+cmd="sudo mkdir -p /opt/ && sudo chown -R $USER:$USER /opt"
 echo cmd
 eval "$cmd"
 # Instead of git pull for updates

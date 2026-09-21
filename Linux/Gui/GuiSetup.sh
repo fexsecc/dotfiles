@@ -14,6 +14,8 @@ SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$SCRIPT_DIR"
 
 mkdir -p "$HOME/Downloads/" "$HOME/Documents/" "$HOME/Pictures/"
+sudo mkdir -p /opt/
+sudo chown -R $USER:$USER /opt/
 
 # Make sure yay is installed
 ../InstallYay.sh
@@ -28,7 +30,8 @@ yay --needed -S \
     zathura zathura-pdf-mupdf mpv ungoogled-chromium-bin \
     pipewire pipewire-alsa pipewire-pulse pipewire-jack wireplumber  \
     vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb darkman \
-    kvantum qt5-wayland qt6-wayland papirus-icon-theme power-profiles-daemon
+    kvantum qt5-wayland  qt6-wayland papirus-icon-theme power-profiles-daemon \
+    qemu-desktop libvirt virt-manager git base-devel dnsmasq edk2-ovmf nftables\
 
 # NOTE: cannot use for root owned dirs! (e.g. /etc/conf.d)
 CopyConfig() {
@@ -72,3 +75,6 @@ sed -i s/user123/$USER/g "$XDG_CONFIG_HOME/pcmanfm-qt/default/settings.conf"
 # file picker bookmarks
 CopyConfig "./misc/gtk-3.0/bookmarks" "$XDG_CONFIG_HOME/gtk-3.0/"
 sed -i s/user123/$USER/g "$XDG_CONFIG_HOME/gtk-3.0/bookmarks"
+# virt-manager QEMU/KVM setup
+sudo systemctl enable libvirtd
+sudo usermod -aG libvirt,kvm $USER
