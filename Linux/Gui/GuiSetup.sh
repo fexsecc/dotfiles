@@ -14,6 +14,8 @@ SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cd "$SCRIPT_DIR"
 
 mkdir -p "$HOME/Downloads/" "$HOME/Documents/" "$HOME/Pictures/"
+sudo mkdir -p /opt/
+sudo chown -R $USER:$USER /opt/
 
 # Make sure yay is installed
 ../InstallYay.sh
