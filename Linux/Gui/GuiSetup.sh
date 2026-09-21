@@ -32,6 +32,7 @@ yay --needed -S \
     vesktop-bin pavucontrol pamixer otf-font-awesome gvfs-smb darkman \
     kvantum qt5-wayland  qt6-wayland papirus-icon-theme power-profiles-daemon \
     qemu-desktop libvirt virt-manager git base-devel dnsmasq edk2-ovmf nftables\
+    mesa-utils
 
 # NOTE: cannot use for root owned dirs! (e.g. /etc/conf.d)
 CopyConfig() {
