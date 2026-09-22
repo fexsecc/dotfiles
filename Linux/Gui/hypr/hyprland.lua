@@ -9,10 +9,11 @@ hl.monitor({
 --monitor = , preferred, auto, 1
 hl.monitor({
     output = "",
-    mode = "1920x1080@180",
+    mode = "1920x1080@60",
     position = "auto",
     scale = "1",
 })
+
 
 local terminal = "alacritty"
 local fileManager = "pcmanfm-qt"
