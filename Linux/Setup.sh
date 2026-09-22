@@ -42,9 +42,7 @@ mkdir -p "$HOME/.config/zsh/"
 touch "$HOME/.config/zsh/zsh_history"
 
 # Configure tmux and tpm plugins
-CopyConfig "./Cli/tmux/tmux.conf" "$HOME/.config/tmux" "tmux.conf"
-cat "./Cli/tmux/dark_theme.conf" >> "$HOME/.config/tmux/tmux.conf"
-cat "./Cli/tmux/plugins.conf" >> "$HOME/.config/tmux/tmux.conf"
+CopyConfig "./Cli/tmux.conf" "$HOME/.config/tmux" "tmux.conf"
 TpmDir="$HOME/.config/tmux/plugins/tpm"
 if [ ! -d "$TpmDir" ]; then
     git clone https://github.com/tmux-plugins/tpm "$TpmDir"
