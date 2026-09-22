@@ -1,27 +1,3 @@
-[window]
-
-padding.x = 0
-padding.y = 0
-
-opacity = 0.9
-
-decorations = "Full"
-decorations_theme_variant = "Dark"
-
-[mouse]
-
-hide_when_typing = true
-
-[font]
-
-normal.family = "JetBrainsMono NF"
-bold.family = "JetBrainsMono NF"
-italic.family = "JetBrainsMono NF"
-bold_italic.family = "JetBrainsMono NF"
-
-size = 10.0
-
-# THEME
 [colors.bright]
 black = "#444b6a"
 blue = "#7da6ff"
@@ -48,26 +24,21 @@ background = "#1a1b26"
 foreground = "#ffffff"
 
 [colors.search.matches]
-
 foreground = "#44475a"
 background = "#50fa7b"
 
 [colors.search.focused_match]
-
 foreground = "#44475a"
 background = "#ffb86c"
 
 [colors.footer_bar]
-
 background = "#282a36"
 foreground = "#f8f8f2"
 
 [colors.hints.start]
-
 foreground = "#282a36"
 background = "#f1fa8c"
 
 [colors.hints.end]
-
 foreground = "#f1fa8c"
 background = "#282a36"

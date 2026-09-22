@@ -1,0 +1,24 @@
+[window]
+
+padding.x = 0
+padding.y = 0
+
+opacity = 0.9
+
+decorations = "Full"
+decorations_theme_variant = "Dark"
+
+[mouse]
+
+hide_when_typing = true
+
+[font]
+
+normal.family = "JetBrainsMono NF"
+bold.family = "JetBrainsMono NF"
+italic.family = "JetBrainsMono NF"
+bold_italic.family = "JetBrainsMono NF"
+
+size = 10.0
+
+# THEME

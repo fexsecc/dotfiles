@@ -22,11 +22,13 @@ sudo pacman -S --needed \
 
 sudo ./SetupNerdFonts.sh
 
+# NOTE: cannot use for root owned dirs! (e.g. /etc/conf.d)
 CopyConfig() {
     TargetFile=$1
     MainPath="./${TargetFile}"
     DestinationDir=$2
-    OutputFileName=${3:-$TargetFile}
+    # Extracts just the filename from the path if $3 is empty
+    OutputFileName=${3:-$(basename "$TargetFile")}
 
     mkdir -p "$DestinationDir"
     cp "$MainPath" "${DestinationDir}/${OutputFileName}"
@@ -39,12 +41,10 @@ CopyConfig "./Cli/zshrc" "$HOME" ".zshrc"
 mkdir -p "$HOME/.config/zsh/"
 touch "$HOME/.config/zsh/zsh_history"
 
-# Configure alacritty
-mkdir -p "$HOME/.config/alacritty/"
-CopyConfig "./Cli/alacritty.toml" "$HOME/.config/alacritty" "alacritty.toml"
-
 # Configure tmux and tpm plugins
-CopyConfig "./Cli/tmux.conf" "$HOME/.config/tmux" "tmux.conf"
+CopyConfig "./Cli/tmux/tmux.conf" "$HOME/.config/tmux" "tmux.conf"
+cat "./Cli/tmux/dark_theme.conf" >> "$HOME/.config/tmux/tmux.conf"
+cat "./Cli/tmux/plugins.conf" >> "$HOME/.config/tmux/tmux.conf"
 TpmDir="$HOME/.config/tmux/plugins/tpm"
 if [ ! -d "$TpmDir" ]; then
     git clone https://github.com/tmux-plugins/tpm "$TpmDir"
