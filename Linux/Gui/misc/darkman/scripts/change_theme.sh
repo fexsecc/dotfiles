@@ -32,4 +32,10 @@ gsettings set org.gnome.desktop.interface gtk-theme "$GTK_THEME"
 # Apply Qt / Kvantum themes
 kvantummanager --set "$KV_THEME"
 
+if [ "$TARGET" = "dark" ]; then
+    ln -sf ~/.config/alacritty/dark.toml ~/.config/alacritty/theme.toml
+elif [ "$TARGET" = "light" ]; then
+    ln -sf ~/.config/alacritty/light.toml ~/.config/alacritty/theme.toml
+fi
+
 notify-send "Darkman theme selector" "$MSG"

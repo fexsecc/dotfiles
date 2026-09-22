@@ -49,8 +49,9 @@ CopyConfig() {
 }
 
 # alacritty config
-CopyConfig "./alacritty/alacritty.toml" "$XDG_CONFIG_HOME/alacritty" "alacritty.toml"
-cat "./alacritty/dark_theme.toml" >> "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+cp -r ./alacritty/ "$XDG_CONFIG_HOME/"
+# set default to light
+ln -sf "$XDG_CONFIG_HOME/alacritty/light.toml" "$XDG_CONFIG_HOME/alacritty/theme.toml"
 
 # hyprland config
 cp -r ./hypr/ "$XDG_CONFIG_HOME/"
