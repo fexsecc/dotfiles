@@ -23,7 +23,7 @@ local notes = "logseq-desktop-electron --enable-features=UseOzonePlatform --ozon
 local keepass = "keepassxc"
 local discord = "vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
 local screenshot = 'grim -g "$(slurp)" - | wl-copy'
-local vm = "virt-manager"
+local vm = 'GTK_THEME="Adwaita:$(darkman get)" virt-manager'
 local lock = "hyprlock"
 
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
