@@ -49,32 +49,12 @@ hl.env("QT_STYLE_OVERRIDE", "kvantum")
 
 -- Window rules
 hl.window_rule({
-    name = "IDA float fix",
+    name = "IDA dialogs float",
     match = {
-        float = true,
-        class = "com.hex-rays.ida",
+        class = "com.hex_rays.IDA.*",
+        modal = true
     },
-})
-hl.window_rule({
-    name = "IDA float fix",
-    match = {
-        float = true,
-        title = ".*About.*",
-    },
-})
-hl.window_rule({
-    name = "IDA float fix",
-    match = {
-        title = "title:.*IDA - .*",
-    },
-    suppress_event = "maximize",
-})
-hl.window_rule({
-    name = "IDA float fix",
-    match = {
-        title = "IDA: Quick start",
-    },
-    suppress_event = "maximize",
+    float = true,
 })
 hl.layer_rule({
     name = "vicinae-blur",
