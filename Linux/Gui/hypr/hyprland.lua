@@ -19,7 +19,7 @@ local terminal = "alacritty"
 local fileManager = "pcmanfm-qt"
 local menu = "vicinae toggle"
 local browser = "chromium --enable-features=UseOzonePlatform --ozone-platform=wayland --incognito"
-local notes = "logseq-desktop-electron --enable-features=UseOzonePlatform --ozone-platform=wayland"
+local notes = "obsidian"
 local keepass = "keepassxc"
 local discord = "vesktop --enable-features=UseOzonePlatform --ozone-platform=wayland"
 local screenshot = 'grim -g "$(slurp)" - | wl-copy'
